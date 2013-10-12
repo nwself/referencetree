@@ -1,3 +1,5 @@
 config.json
 db.sqlite3
 *.pyc
+mendeley_keys.py
+keys*pkl

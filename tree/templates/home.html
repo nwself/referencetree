@@ -1,7 +1,27 @@
 {% block title %}Reference Tree{% endblock %}
 
 {% block content %}
-    
 
+<select id='folder-select'>
+<option value=""></option>
+{% for folder in folders %}
+    <option value={{ folder.id }}>{{ folder.name }}</option>
+{% endfor %}
+</select>
+
+<ul>
+{% for document in documents %}
+    <li><strong>{{ document.title }}</strong></li>
+{% endfor %}
+</ul>
+
+<script type="javascript">
+    $(document).ready(function () {
+        $('#folder-select').on('change', function () {
+            console.log("THE THINGS ARE " + $(this).val());
+            $('#document-list').load("/api/folder_documents/" + $(this).val() + "/");
+        });
+    });
+</script>
 
 {% endblock %}

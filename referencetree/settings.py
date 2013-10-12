@@ -1,6 +1,16 @@
 # Django settings for referencetree project.
 
 import os
+import mendeley_keys
+
+# Specific stuff
+
+MENDELEY_TOKEN  = mendeley_keys.MENDELEY_TOKEN
+MENDELEY_SECRET = mendeley_keys.MENDELEY_SECRET
+
+LOGIN_URL = '/login/'
+
+# Other stuff
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -8,7 +18,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Nathan Self', ''),
 )
 
 MANAGERS = ADMINS
@@ -129,7 +139,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'django_extensions',
     'referencetree',
+    'tree',
     'south',
     'registration',
 )
