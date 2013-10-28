@@ -6,15 +6,15 @@ function doTheThing() {
         width = 600,
         height = 500,
         radius = 40,
-        padding = radius/2.0;
+        padding = radius + 10;
 
     var x = d3.time.scale()
         .domain([new Date(data[0].date), d3.time.day.offset(new Date(data[data.length - 1].date), 1)])
-        .rangeRound([0, width - margin.left - margin.right]);
+        .rangeRound([padding, width - margin.left - margin.right - padding]);
 
     var y = d3.scale.linear()
         .domain([0, d3.max(data, function(d) { return d.total; })])
-        .range([height - margin.top - margin.bottom, 0]);
+        .range([height - margin.top - margin.bottom - padding, padding]);
 
     var xAxis = d3.svg.axis()
         .scale(x)
